@@ -1,0 +1,40 @@
+.fidelity-card {
+    float: left;
+    width: 20em;
+    height: 10em;
+    border: .1em solid #64BBEB;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em 2em 1em 0; 
+    position: relative;
+}
+
+.fidelity-card .card-actions {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    line-height: 1.5em;
+    font-size: larger;
+}
+
+.fidelity-card .card-actions .visit-catalog, .delete {
+    transition: .3s;
+}
+
+.fidelity-card .card-actions .visit-catalog:hover {
+    cursor: pointer;
+    color: #91cff1;
+}
+
+.fidelity-card .card-actions .delete:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.fidelity-card p:last-child {
+    float: right;
+}
+
+.fidelity-card {
+    margin-left: 0;
+}

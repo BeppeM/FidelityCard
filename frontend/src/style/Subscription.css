@@ -1,0 +1,181 @@
+
+.sub-background {
+    background-color: #abd9f1;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+}
+ 
+.sub {
+    border-radius: 1em;
+    border: .5em solid #64BBEB;
+    font-family: "Barlow";
+    text-align: center;
+    font-size: larger;
+    padding: 3em;
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff0;
+}
+
+
+.sub h1 {
+    font-family: "BarlowBold";
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.sub .user-type-slider {
+    -webkit-appearance: none;
+    height: .1em;
+    width: 20em;
+    background-color: #fff;
+    border: none;
+    margin-bottom: 2em;
+}
+
+.user-type-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10em;
+    height: .1em;
+    background: #64BBEB;
+    cursor: pointer;
+}
+
+.user-type-slider::-moz-range-thumb {
+    -moz-appearance: none;
+    width: 10em;
+    height: .1em;
+    background: #64BBEB;
+    cursor: pointer;
+}
+
+.user-type {
+    display: flex;
+    justify-content:center;
+}
+
+
+.user-type span {
+    width: 10em;
+    transition: .3s;
+}
+
+.user-type span:hover {
+    cursor: pointer;
+}
+
+.sub-form {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.user-data {
+    margin: 0 1em;
+    display: block;
+}
+
+.user-data .user-data-type {
+    display: flex;
+    justify-content: center;
+}
+
+.user-data div {
+    margin: 0 .5em;
+}
+
+.user-info {
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+
+.sub .form-text {
+    width: 20em;
+    height: 3em;
+    padding: 0 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    transition: .3s;
+    border: .1em solid;
+    border-color: #333;
+}
+
+.sub .form-text:focus {
+    outline: none;
+    border-color: #91cff1;
+}
+
+.sub .address {
+    width: 15em;
+    margin-right: .2em;
+}
+
+.sub .house-number {
+    width: 4.8em;
+}
+
+
+
+.sub .form-submit {
+    height: 3em;
+    width: 10em;
+    background-color: #fff;
+    border-radius: 1em;
+    border: .1em solid #64BBEB;
+    color: #333;
+    transition: .3s;
+    margin-top: 1em;
+}
+
+.sub .form-submit:hover {
+    background-color: #91cff155;
+}
+
+
+.sub #error {
+    visibility: hidden;
+    width: 20em;
+    height: 0em;
+    border: .2em solid #e72618;
+    background-color: #f1837b;
+    border-radius: 1em;
+    transition: .3s;
+    margin-top: 2em;
+    margin-left: 22.5em;
+}
+
+
+@media screen  and (max-width: 80em) {
+
+    .sub {
+        height: 100vh;
+        width: 90vw;
+    }
+
+    .sub-form {
+        display: initial;
+    }
+
+    .user-data .user-data-type  {
+        display: initial;
+    }
+    
+}

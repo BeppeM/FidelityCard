@@ -1,0 +1,68 @@
+
+.card-table {
+    margin-top: 1em;
+    width: 80%;
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 1em;
+    border: 1px solid #333;
+}
+
+.card-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-right: 1em;
+}
+
+.card-table table thead th {
+    position: sticky;
+    top: 0;
+}
+
+
+.card-table tr {
+    height: 2em;
+}
+
+.card-table tr th {
+    background-color: #91cff1;
+}
+
+
+.card-table tbody tr {
+    height: 2em;
+}
+
+.card-table tbody tr:nth-child(even) {
+    background-color: #dcf0fa;
+}
+
+.card-table tbody .add-pts input {
+    text-align: center;
+    width: 4em;
+    margin-right: 1em;
+    border: none;
+    border-bottom: .1em solid #333;
+    transition: .3s;
+    background-color: #0000;
+    outline: none;
+}
+
+.card-table tbody .add-pts input:focus {
+    border-color: #91cff1;
+}
+
+.card-table tbody .add-pts button {
+    background-color: #fff0;
+    border: none;
+    width: 2em;
+    border-radius: 1em;
+    transition: .3s;
+}
+@media screen and (max-width: 65em) {
+    .card-table {
+        width: 100%;
+    }
+}

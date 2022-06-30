@@ -1,0 +1,33 @@
+server:
+  port: 8083
+spring:
+  config:
+    import: optional:configserver:http://config-server:8888
+  application:
+    name: card-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+      #spring:
+      #jpa.database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    #jdbc:mysql://localhost/bootdb?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://mysqldb/carddb
+    username: root
+    password: root
+    platform: mysql
+    initialization-mode: always
+    #driverClassName: org.h2.Driver
+#Eureka client configurations
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://eureka-server:8761/eureka/
+    register_with_eureka: true
+    fetch_registry: true
+  instance:
+    preferIpAddress: true

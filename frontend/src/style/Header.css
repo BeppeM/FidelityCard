@@ -1,0 +1,105 @@
+
+.navbar {
+    padding: 0 5em;
+    background-color: #91cff1;
+    color: #333;
+    display: flex;
+    height: 5em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.navbar h1 {
+    font-family: "BarlowBold";
+}
+
+.navbar label {
+    font-size: 2em;
+    color: #333;
+    display: none;
+}
+
+.navbar label:hover {
+    cursor: pointer;
+}
+
+
+.menu {
+    font-family: "Barlow";
+    list-style: none;
+    margin-top: 1em;
+}
+
+.menu li, .login-link {
+    display: inline;
+    margin: 1em;
+    font-size: larger;
+}
+
+.menu li:hover{
+    cursor: pointer;    
+}
+
+.router-link {
+    text-decoration: none;
+    color: inherit;
+    font-family: "Barlow";
+}
+
+.router-link:hover {
+    color: #333;
+}
+
+#menuBtn {
+    display: none;
+}
+
+@media screen and (max-width: 65em) {
+
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar h1 {
+        margin-left: .5em;
+    }
+
+    .navbar label {
+        display: block;
+        margin-right: .5em;
+    }
+
+    .menu {
+        display: flex;
+        position: fixed;
+        right: -100%;
+        width: 100vw;
+        justify-content: center;
+        margin-top: 10em;
+        background-color: #abd9f1;
+        opacity: 0;
+        transition: right .3s, opacity .1s;
+    }
+
+    .menu li {
+        margin-left: 0;
+        margin-right: 3em;
+    }
+
+    #menuBtn:checked ~ .menu {
+        right: 0;
+        opacity: 1;
+    }
+
+    html:not([data-scroll='0']) .navbar{
+        position: fixed;
+        width: 100vw;
+    }
+}
+
+
+
+
+

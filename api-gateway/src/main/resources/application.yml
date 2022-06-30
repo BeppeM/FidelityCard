@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  main:
+    allow-circular-references: true
+    banner-mode: "off"
+  #Retrieve config data from the config server
+  config:
+    import: optional:configserver:http://config-server:8888/
+  profiles:
+    active: dev
+  application:
+    name: gateway-service
+  cloud:
+    #Retrieve config data from the config server
+    config:
+#      enabled: true
+      #URI of the config server
+      uri: http://config-server
+ #  gateway:
+ #    globalcors:
+ #      corsConfigurations:
+ #        '[/**]':
+ #          allowedOrigins: "*"
+ #          allowedHeaders: "*"
+ #          allowedMethods: "*"
+
+#Eureka client configurations
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://eureka-server:8761/eureka/
+    register_with_eureka: true
+    fetch_registry: true
+  instance:
+    preferIpAddress: true

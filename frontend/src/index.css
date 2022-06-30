@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "BarlowBold";
+  src: local("BarlowBold"),
+   url("./fonts/Barlow-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: local("Barlow"),
+   url("./fonts/Barlow-Regular.ttf") format("truetype");
+}
+

@@ -1,0 +1,96 @@
+
+
+.account-content {
+    margin: 1em 4em;
+    font-size: larger;
+    font-family: "Barlow";
+}
+
+.manager-data {
+    float: left;
+    width: 50vw;
+}
+
+.catalog-management {
+    width: 100vw;
+}
+
+.catalog-select {
+    width: 20em;
+    height: 3em;
+    outline: none;
+    border: .1em solid #333;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    border-radius: 1em;
+}
+
+.catalog-select .select-placeholder {
+    display: none;
+}
+
+.refresh-catalog {
+    border: .1em solid #91cff1;
+    background-color: #fff;
+    font-size: larger;
+    margin-left: 3em;
+    height: 2em;
+    width: 2em;
+    border-radius: .5em;
+    transition: .3s;
+}
+
+.refresh-catalog:hover {
+    background-color: #91cff155;
+}
+
+.management {
+    width: 100%;
+    display: flex;
+}
+
+.card-management {
+    width: 50vw;
+}
+
+.reward-management {
+    width: 50vw;
+}
+
+.statistic-content{
+    margin: 1em 4em;
+    font-size: larger;
+    font-family: "Barlow";
+}
+
+@media screen and (max-width: 65em) {
+    .account-content {
+        margin: 8em 1em;
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .manager-data, .new-catalog {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+
+    .catalog-management {
+        width: 100vw;
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    .management {
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+
+
+
+

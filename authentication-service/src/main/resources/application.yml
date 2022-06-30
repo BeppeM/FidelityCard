@@ -1,0 +1,38 @@
+server:
+  port: 8085
+jwt:
+  secret: pippo-pluto-paperino-spiderman-ironman
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: authentication-service
+  cloud:
+    config:
+      import-check:
+        enabled: false
+  config:
+    import: "optional:configserver:"
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+  datasource:
+    url: jdbc:mysql://mysqldb/authenticationdb
+    username: root
+    password: root
+    platform: mysql
+    initialization-mode: always
+
+#Eureka client configurations
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://eureka-server:8761/eureka/
+    register_with_eureka: true
+    fetch_registry: true
+  instance:
+    preferIpAddress: true

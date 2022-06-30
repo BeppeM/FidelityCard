@@ -1,0 +1,75 @@
+
+.content-home {
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+}
+
+.shortcut-card {
+    height: 25em;
+    width: 20em;
+    margin: 5em;
+    text-align: center;
+    font-family: "Barlow";
+    font-size: larger;
+}
+
+.shortcut-card i {
+    font-size: 12em;
+    color: #333;  
+    transition: .3s;
+}
+
+.shortcut-card:hover {
+    cursor: pointer;
+}
+
+.shortcut-card:hover i, .shortcut-card:hover .manager-info h2 {
+    color: #64BBEB;
+}
+
+.manager-info {
+    margin-top: 6em ;
+}
+
+.manager-info h2 {
+    margin-bottom: 1em;
+    transition: .3s;
+}
+
+.close-shortcut-btn {
+    position: fixed;
+    top: .5em;
+    right: .5em;
+}
+
+.close-shortcut-btn:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 80em) {
+
+    .shortcut-card {
+        height: 15em;
+        width: 10em;
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width: 60em) {
+    
+    .content-home {
+        display: grid;
+        align-items: center;
+        padding-top: 1em;
+        margin-bottom: 2em;
+    }
+
+    .shortcut-card {
+        height: 18em;
+        width: 20em;
+        margin: 2.5em;
+        font-size: larger;
+    }
+}
+

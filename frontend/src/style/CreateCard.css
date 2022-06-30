@@ -1,0 +1,31 @@
+.create-card-select {
+    width: 20em;
+    height: 3em;
+    outline: none;
+    border: .1em solid #333;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    border-radius: 1em;
+}
+
+.create-card-select .select-placeholder {
+    display: none;
+}
+
+.create-card-select option {
+    height: 2em;
+    border-bottom: .1em solid #333;
+}
+
+.create-card-submit {
+    width: 8em;
+    height: 3em;
+    background-color: #fff;
+    border: .1em solid #64BBEB;
+    border-radius: 1em;
+    transition: .3s;
+}
+
+.create-card-submit:hover {
+    background-color: #91cff155;
+}

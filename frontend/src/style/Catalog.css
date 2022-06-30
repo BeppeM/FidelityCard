@@ -1,0 +1,56 @@
+
+
+
+.catalog  {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    position: fixed;
+    margin-top: 5em;
+    padding-bottom: 5em;
+    padding-top: 3em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Barlow";
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.reward {
+    border: .1em solid #91cff1;
+    margin: 0 1em 2em 1em;
+    padding: 1em;
+    border-radius: 1em;
+    transition: .3s;
+    font-size: larger;
+    position: relative;
+    width: 15em;
+    height: 12em;
+}
+
+.reward:hover {
+    box-shadow: .5em .5em #91cff155;
+}
+
+.reward button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    background-color: #64BBEB;
+    border: none;
+    height: 2em;
+    width: 2em;
+    border-radius: .5em;
+}
+
+@media screen and (max-width: 65em) {
+    .catalog {
+        padding-top: 5em;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .reward {
+        width: 20em;
+        height: 15em;
+    }
+}

@@ -1,0 +1,62 @@
+
+
+.redeem-history {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    margin-top: 3em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50vw;
+    font-size: 1.4em;
+    font-family: "Barlow";
+    max-height: 70vh;
+    overflow-y: auto;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.redeem-history table {
+    width: 100%;
+}
+
+.redeem-history table tr {
+    height: 3em;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.redeem-history table thead {
+    position: sticky;
+    top: 0;
+
+}
+
+.redeem-history table thead tr {
+    background-color: #91cff1;
+}
+
+.redeem-history table tbody tr {
+    transition: .3s
+}
+
+.redeem-history table tbody tr:hover {
+    background-color: #eee;
+}
+
+.no-redeem-log {
+    position: fixed;
+    top:10em;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Barlow";
+}
+
+@media screen and (max-width: 65em) {
+    .redeem-history {
+        margin-top: 10em;
+        width: 90vw;
+        font-size: 1.2em;
+    }
+}
+

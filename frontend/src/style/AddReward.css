@@ -1,0 +1,69 @@
+
+
+form.add-reward {
+    font-size: larger;
+    margin: 2em;
+}
+form.add-reward input[type = "text"]{
+    height: 3em;
+    width: 20em;
+    padding-left: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    border: .1em solid #333;
+    transition: .3s;
+    outline: none;
+}
+
+form.add-reward input[type = text]:focus, 
+form.add-reward textarea:focus, 
+form.add-reward input[type=number]:focus  {
+    border-color: #91cff1;
+}
+
+form.add-reward textarea {
+    outline: none;
+    resize: none;
+    width: 20em;
+    height: 5em;
+    padding: .5em 1em;
+    border-radius: 1em;
+    transition: .3s;
+    margin-bottom: 1em;
+    border: .1em solid #333;
+}
+
+form.add-reward input[type=number] {
+    outline: none;
+    border: .1em solid #333;
+    width: 10em;
+    height: 3em;
+    padding-left: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    transition: .3s;
+}
+
+form.add-reward input[type=submit] {
+    outline: none;
+    width: 20em;
+    height: 3em;
+    border: .1em solid #91cff1;
+    border-radius: 1em;
+    background-color: #fff;
+    transition: .3s;
+}
+
+form.add-reward input[type=submit]:hover {
+    background-color: #91cff155;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

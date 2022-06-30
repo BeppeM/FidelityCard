@@ -1,0 +1,38 @@
+package com.stage.statisticservice.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class StatisticSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    StatisticRequestFilter statisticRequestFilter;
+
+    //Intercept requests and decide who can do what
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.csrf().disable()
+                //Authorize requests for /authenticate from anybody
+                .authorizeRequests()
+                .antMatchers("/api/statistic/avgPoints/**", "/api/statistic/get/avgSubs/**")
+                .hasRole("MANAGER")
+                .antMatchers("/api/statistic/get/avgPoints/**").permitAll()
+                .antMatchers("/api/statistic/get/pointsPerDay/").hasRole("CUSTOMER")
+                // all other requests need to be authenticated
+                .anyRequest().authenticated()
+                .and()
+                //Doesn't create a session!!!
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        //Adding the filter to the security
+        httpSecurity.addFilterBefore(statisticRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+}

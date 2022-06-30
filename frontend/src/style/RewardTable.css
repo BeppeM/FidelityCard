@@ -1,0 +1,92 @@
+
+.reward-table {
+    margin-top: 1em;
+    width: 80%;
+    max-height: 16em;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 1em;
+    border: 1px solid #333;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+.reward-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-right: 1em;
+}
+
+.reward-table table thead th {
+    position: sticky;
+    top: 0;
+}
+
+
+.reward-table tr {
+    height: 2em;
+}
+
+.reward-table tr th {
+    background-color: #91cff1;
+}
+
+.reward-table tbody tr {
+    height: 2em;
+}
+
+.reward-table tbody tr:nth-child(even) {
+    background-color: #dcf0fa;
+}
+
+.reward-table tbody .add-reward {
+    height: 3em;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.reward-table tbody .add-reward:hover {
+    cursor: pointer;
+    background-color: #91cff1;
+}
+
+.reward-table tbody .add-stock input {
+    text-align: center;
+    width: 4em;
+    margin-right: 1em;
+    border: none;
+    border-bottom: .1em solid #333;
+    transition: .3s;
+    outline: none;
+    background-color: #0000;
+}
+
+.reward-table tbody .add-stock input:focus {
+    border-color: #91cff1;
+}
+
+.reward-table tbody .add-stock button {
+    background-color: #fff0;
+    border: none;
+    width: 2em;
+    border-radius: 1em;
+    transition: .3s;
+}
+
+
+.reward-table tbody .delete {
+    transition: .3s;    
+}
+
+.reward-table tbody .delete:hover {
+    color: red;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 65em) {
+    .reward-table {
+        width: 100%;
+    }
+}

@@ -1,0 +1,32 @@
+
+.confirm-content {
+    margin: 2em;
+    font-size: larger;
+    position: relative;
+    width: 20em;
+    height: 7em;
+}
+
+.confirm-content .btns {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.btns .confirm, .btns .cancel {
+    margin-right: 1em;
+    background-color: #fff;
+    height: 2em;
+    border: .1em solid #333;
+    border-radius: .8em;
+    padding: 0 1em;
+    transition: .3s;
+}
+
+.btns .confirm:hover {
+    background-color: #91cff1;
+}
+
+.btns .cancel:hover {
+    background-color: #aaa5;
+}

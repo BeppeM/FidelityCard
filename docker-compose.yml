@@ -1,0 +1,191 @@
+version: '3.8'
+services:
+# Config-server
+  config-server:
+    restart: always
+    build:
+      context: ./config-server
+      dockerfile: Dockerfile
+    container_name: config-server
+    ports:
+      - 8888:8888
+# Eureka-server
+  eureka-server:
+    restart: always
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    ports:
+      - 8761:8761
+    depends_on:
+      config-server:
+        condition: service_started
+# MySQL DB
+  mysqldb:
+    restart: always
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - db:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d/:ro
+# Authentication-service
+  authentication-service:
+    restart: always
+    build:
+      context: ./authentication-service
+      dockerfile: Dockerfile
+    container_name: authentication-service
+    depends_on:
+      config-server:
+        condition: service_started
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    ports:
+      - 8085:8085
+    expose:
+      - 8085
+# gateway
+  gateway:
+    restart: always
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: gateway-service
+    ports:
+      - 8080:8080
+    depends_on:
+      config-server:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+# Manager service
+  manager-service:
+    restart: always
+    build:
+      context: ./manager-service
+      dockerfile: Dockerfile
+    container_name: manager-service
+    depends_on:
+      config-server:
+        condition: service_started
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+# Customer service
+  customer-service:
+    restart: always
+    build:
+      context: ./customer-service
+      dockerfile: Dockerfile
+    container_name: customer-service
+    depends_on:
+      config-server:
+        condition: service_started
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+    expose:
+      - 8082
+    ports:
+      - 8082:8082
+  # Card service
+  card-service:
+    restart: always
+    build:
+      context: ./card-service
+      dockerfile: Dockerfile
+    container_name: card-service
+    depends_on:
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    expose:
+      - 8083
+    ports:
+      - 8083:8083
+  # Catalog service
+  catalog-service:
+    restart: always
+    build:
+      context: ./catalog-service
+      dockerfile: Dockerfile
+    container_name: catalog-service
+    depends_on:
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    expose:
+      - 8086
+    ports:
+      - 8086:8086
+  # redeem service
+  redeem-service:
+    restart: always
+    build:
+      context: ./redeem-service
+      dockerfile: Dockerfile
+    container_name: redeem-service
+    depends_on:
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    expose:
+      - 8087
+    ports:
+      - 8087:8087
+  #Statistic service
+  statistic-service:
+    restart: always
+    build:
+      context: ./statistic-service
+      dockerfile: Dockerfile
+    container_name: statistic-service
+    depends_on:
+      mysqldb:
+        condition: service_started
+      eureka-server:
+        condition: service_started
+      gateway:
+        condition: service_started
+    expose:
+      - 8084
+    ports:
+      - 8084:8084
+  #Frontend App
+#  react-app:
+#   restart: always
+#   build:
+#     context: ./frontend
+#     dockerfile: Dockerfile
+#   container_name: react-app
+#   ports:
+#     - 3000:3000
+#   volumes:
+#     - ./frontend:/core
+volumes:
+  db:

@@ -1,0 +1,14 @@
+server:
+  port: 8761
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: eureka-server
+# Disable of auto fetch-registry
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/

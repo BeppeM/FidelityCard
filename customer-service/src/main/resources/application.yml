@@ -1,0 +1,40 @@
+server:
+  port: 8082
+spring:
+  main:
+    banner-mode: "off"
+  #config:
+   # import: "optional:configserver:"
+  application:
+    name: customer-service
+  config:
+    import: optional:configserver:http://config-server:8888
+  profiles:
+      active: dev
+  cloud:
+    config:
+      #URI of the config server
+      uri: http://config-server
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+  datasource:
+    url: jdbc:mysql://mysqldb/customerdb
+    username: root
+    password: root
+    platform: mysql
+    initialization-mode: always
+
+#Eureka client configurations
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://eureka-server:8761/eureka/
+    register_with_eureka: true
+    fetch_registry: true
+  instance:
+    preferIpAddress: true

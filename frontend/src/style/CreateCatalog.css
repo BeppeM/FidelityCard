@@ -1,0 +1,43 @@
+
+.catalog-name {
+    width: 20em;
+    height: 3em;
+    padding-left: 1em;
+    border-radius: 1em;
+    outline: none;
+    border: .1em solid #333;
+    margin-bottom: 1em;
+    transition: .3s;
+}
+
+.catalog-name:focus {
+    border-color: #91cff1;
+}
+
+.catalog-desc {
+    resize: none;
+    width: 20em;
+    height: 5em;
+    padding: .5em 1em;
+    border-radius: 1em;
+    outline: none;
+    border: .1em solid #333;
+    transition: .3s;
+}
+
+.catalog-desc:focus {
+    border-color: #91cff1;
+}
+
+.form-submit {
+    width: 8em;
+    height: 3em;
+    background-color: #fff;
+    border: .1em solid #64BBEB;
+    border-radius: 1em;
+    transition: .3s;
+}
+
+.form-submit:hover {
+    background-color: #91cff155;
+}

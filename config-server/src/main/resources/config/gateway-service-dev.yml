@@ -1,0 +1,89 @@
+spring:
+  cloud:
+    loadBalancer.ribbon.enabled: false
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#    globalcors:
+#      corsConfigurations:
+#        '[/**]':
+#          allowedOrigins: "*"
+#          allowedHeaders: "*"
+#          allowedMethods: "*"
+      routes:
+        #route id opzionale
+        #MANAGER-SERVICE
+        - id: manager-service
+          #URI di destinazione metto il nome del service lb= load balanced
+          uri: lb://manager-service
+          #immetto il percorso (opzionale)
+          predicates:
+            - Path=/api/manager/**
+          #filtri per modificare la richiesta o risposta prima o dopo aver inviato la rispostaa
+          filters:
+            - AddRequestHeader=manager-request, manager-service-request
+            - AddResponseHeader=manager-response, manager-service-response
+            - name: CheckJwtFilter
+        #CUSTOMER-SERVICE
+        - id: customer-service
+          #CUSTOMER-SERVICE
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/customer/**
+          filters:
+            - AddRequestHeader=customer-request, customer-service-request
+            - AddResponseHeader=customer-response, customer-service-response
+            - name: CheckJwtFilter
+        - id: card-service
+          #CARD-SERVICE
+          uri: lb://card-service
+          predicates:
+            - Path=/api/card/**
+          filters:
+            - AddRequestHeader=card-request, card-service-request
+            - AddResponseHeader=card-response, card-service-response
+            - name: CheckJwtFilter
+        #STATISTIC-SERVICE
+        - id: statistic-service
+          uri: lb://statistic-service
+          predicates:
+            - Path=/api/statistic/**
+          filters:
+            - AddRequestHeader=statistic-request, statistic-service-request
+            - AddResponseHeader=statistic-response, statistic-service-response
+            - name: CheckJwtFilter
+        #CATALOG-SERVICE
+        - id: catalog-service
+          #lb= load balanced
+          uri: lb://catalog-service
+          predicates:
+            - Path=/api/catalog/**
+          filters:
+            - AddRequestHeader=catalog-request, catalog-service-request
+            - AddResponseHeader=catalog-response, catalog-service-response
+            - name: CheckJwtFilter
+        #REDEEM-SERVICE
+        - id: redeem-service
+          #lb= load balanced
+          uri: lb://redeem-service
+          predicates:
+            - Path=/api/redeem/**
+          filters:
+            - AddRequestHeader=redeem-request, redeem-service-request
+            - AddResponseHeader=redeem-response, redeem-service-response
+            - name: CheckJwtFilter
+        #AUTHENTICATION-SERVICE
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - AddRequestHeader=authentication-request, authentication-service-request
+            - AddResponseHeader=authentication-response, authentication-service-response
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
